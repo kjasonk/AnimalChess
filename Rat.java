@@ -1,43 +1,34 @@
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author nathaniel
- */
-public class Animal {
+public class Rat extends Animal {
     String name;
-    Location coord = new Location();
+    Location startLocation = new Location();
     ImageIcon theIcon;
-    int power;
-    boolean canSwim;
-    boolean canJump;
+    int power = 1;
+    boolean canSwim = true;
+    boolean canJump = false;
     boolean isRedSide;
-    
-    public void setName(String newName)
-    {
-        this.name = newName;
-    }
-    
+
+	public Rat(boolean color) {
+		this.isRedSide = color;
+        if (color) {
+        	name = "Red rat";
+        	this.theIcon = new ImageIcon(getClass().getResource("Assets/red/r1.png"));
+        	startLocation.setX(6);
+        	startLocation.setY(2);
+        }
+        else {
+        	name = "Black rat";
+        	this.theIcon = new ImageIcon(getClass().getResource("Assets/black/b1.png"));
+        	startLocation.setX(0);
+        	startLocation.setY(6);
+        }
+	}
+	
     public void setLocation(int newX, int newY)
     {
         coord.setX(newX);
         coord.setY(newY);
-    }
-    
-    public void setImage(ImageIcon newIcon)
-    {
-        this.theIcon = newIcon;
-    }
-    
-    public void setPower(int newPower)
-    {
-        this.power = newPower;
-    }
-    
-    public void setSide(boolean color)
-    {
-        this.isRedSide = color;
-        
     }
     
     public String getName()
@@ -47,7 +38,7 @@ public class Animal {
     
     public Location getLocation()
     {
-        return coord;
+        return startLocation;
     }
     
     public ImageIcon getImage()

@@ -6,22 +6,24 @@ import javax.swing.*;
 public class ChessBoard{
     
     JButton[][] board = new JButton[7][9];
-    Animal blackRat = new Animal();
-    Animal blackCat = new Animal();
-    Animal blackDog = new Animal();
-    Animal blackWolf = new Animal();
-    Animal blackLeopard = new Animal();
-    Animal blackTiger = new Animal();
-    Animal blackLion = new Animal();
-    Animal blackElephant = new Animal();
-    Animal redRat = new Animal();
-    Animal redCat = new Animal();
-    Animal redDog = new Animal();
-    Animal redWolf = new Animal();
-    Animal redLeopard = new Animal();
-    Animal redTiger = new Animal();
-    Animal redLion = new Animal();
-    Animal redElephant = new Animal();
+    //
+    Animal blackRat = new Rat(false);
+    Animal blackCat = new Cat(false);
+    Animal blackDog = new Dog(false);
+    Animal blackWolf = new Wolf(false);
+    Animal blackLeopard = new Leopard(false);
+    Animal blackTiger = new Tiger(false);
+    Animal blackLion = new Lion(false);
+    Animal blackElephant = new Elephant(false);
+    Animal redRat = new Rat(true);
+    Animal redCat = new Cat(true);
+    Animal redDog = new Dog(true);
+    Animal redWolf = new Wolf(true);
+    Animal redLeopard = new Leopard(true);
+    Animal redTiger = new Tiger(true);
+    Animal redLion = new Lion(true);
+    Animal redElephant = new Elephant(true);
+    //
     ImageIcon river = new ImageIcon (getClass().getResource("Assets/river.png"));
     ImageIcon grass = new ImageIcon (getClass().getResource("Assets/grass.png"));
     ImageIcon den = new ImageIcon (getClass().getResource("Assets/den.png"));
@@ -52,9 +54,6 @@ public class ChessBoard{
         // Create board
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(7, 9));
-        
-        setBlackAnimal();
-        setRedAnimal();
         
         // Assign river, trap, den, and grass image to the button
         for(int i = 0; i < 7; i++)
@@ -610,143 +609,6 @@ public class ChessBoard{
                 }
             }
         }
-    }
-    
-    // Set Black Animal Variable
-    private void setBlackAnimal()
-    {
-        blackRat.setName("black rat");
-        blackRat.setImage(new ImageIcon (getClass().getResource("Assets/black/b1.png")));
-        blackRat.setLocation(0, 6);
-        blackRat.setPower(1);
-        blackRat.Jumpable(false);
-        blackRat.Swimable(true);
-        blackRat.setSide(false);
-        
-        blackCat.setName("black cat");
-        blackCat.setImage(new ImageIcon (getClass().getResource("Assets/black/b2.png")));
-        blackCat.setLocation(5, 7);
-        blackCat.setPower(2);
-        blackCat.Jumpable(false);
-        blackCat.Swimable(false);
-        blackCat.setSide(false);
-        
-        blackDog.setName("black dog");
-        blackDog.setImage(new ImageIcon (getClass().getResource("Assets/black/b3.png")));
-        blackDog.setLocation(1, 7);
-        blackDog.setPower(3);
-        blackDog.Jumpable(false);
-        blackDog.Swimable(false);
-        blackDog.setSide(false);
-        
-        blackWolf.setName("black wolf");
-        blackWolf.setImage(new ImageIcon (getClass().getResource("Assets/black/b4.png")));
-        blackWolf.setLocation(4, 6);
-        blackWolf.setPower(4);
-        blackWolf.Jumpable(false);
-        blackWolf.Swimable(false);
-        blackWolf.setSide(false);
-        
-        blackLeopard.setName("black leopard");
-        blackLeopard.setImage(new ImageIcon (getClass().getResource("Assets/black/b5.png")));
-        blackLeopard.setLocation(2, 6);
-        blackLeopard.setPower(5);
-        blackLeopard.Jumpable(false);
-        blackLeopard.Swimable(false);
-        blackLeopard.setSide(false);
-        
-        blackTiger.setName("black tiger");
-        blackTiger.setImage(new ImageIcon (getClass().getResource("Assets/black/b6.png")));
-        blackTiger.setLocation(6, 8);
-        blackTiger.setPower(6);
-        blackTiger.Jumpable(true);
-        blackTiger.Swimable(false);
-        blackTiger.setSide(false);
-        
-        blackLion.setName("black lion");
-        blackLion.setImage(new ImageIcon (getClass().getResource("Assets/black/b7.png")));
-        blackLion.setLocation(0, 8);
-        blackLion.setPower(7);
-        blackLion.Jumpable(true);
-        blackLion.Swimable(false);
-        blackLion.setSide(false);
-        
-        blackElephant.setName("black elephant");
-        blackElephant.setImage(new ImageIcon (getClass().getResource("Assets/black/b8.png")));
-        blackElephant.setLocation(6, 6);
-        blackElephant.setPower(8);
-        blackElephant.Jumpable(false);
-        blackElephant.Swimable(false);
-        blackElephant.setSide(false);
-        
-    }
-    
-    // Set Red Animal Variable
-    private void setRedAnimal()
-    {
-        redRat.setName("red rat");
-        redRat.setImage(new ImageIcon (getClass().getResource("Assets/red/r1.png")));
-        redRat.setLocation(6, 2);
-        redRat.setPower(1);
-        redRat.Jumpable(false);
-        redRat.Swimable(true);
-        redRat.setSide(true);
-        
-        redCat.setName("red cat");
-        redCat.setImage(new ImageIcon (getClass().getResource("Assets/red/r2.png")));
-        redCat.setLocation(1, 1);
-        redCat.setPower(2);
-        redCat.Jumpable(false);
-        redCat.Swimable(false);
-        redCat.setSide(true);
-        
-        redDog.setName("red dog");
-        redDog.setImage(new ImageIcon (getClass().getResource("Assets/red/r3.png")));
-        redDog.setLocation(5, 1);
-        redDog.setPower(3);
-        redDog.Jumpable(false);
-        redDog.Swimable(false);
-        redDog.setSide(true);
-        
-        redWolf.setName("red wolf");
-        redWolf.setImage(new ImageIcon (getClass().getResource("Assets/red/r4.png")));
-        redWolf.setLocation(2, 2);
-        redWolf.setPower(4);
-        redWolf.Jumpable(false);
-        redWolf.Swimable(false);
-        redWolf.setSide(true);
-        
-        redLeopard.setName("red leopard");
-        redLeopard.setImage(new ImageIcon (getClass().getResource("Assets/red/r5.png")));
-        redLeopard.setLocation(4, 2);
-        redLeopard.setPower(5);
-        redLeopard.Jumpable(false);
-        redLeopard.Swimable(false);
-        redLeopard.setSide(true);
-        
-        redTiger.setName("red tiger");
-        redTiger.setImage(new ImageIcon (getClass().getResource("Assets/red/r6.png")));
-        redTiger.setLocation(0, 0);
-        redTiger.setPower(6);
-        redTiger.Jumpable(true);
-        redTiger.Swimable(false);
-        redTiger.setSide(true);
-        
-        redLion.setName("red lion");
-        redLion.setImage(new ImageIcon (getClass().getResource("Assets/red/r7.png")));
-        redLion.setLocation(6, 0);
-        redLion.setPower(7);
-        redLion.Jumpable(true);
-        redLion.Swimable(false);
-        redLion.setSide(true);
-        
-        redElephant.setName("red elephant");
-        redElephant.setImage(new ImageIcon (getClass().getResource("Assets/red/r8.png")));
-        redElephant.setLocation(0, 2);
-        redElephant.setPower(8);
-        redElephant.Jumpable(false);
-        redElephant.Swimable(false);
-        redElephant.setSide(true);
     }
     
     // This function is called when animal step out of the trap
